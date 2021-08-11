@@ -1,0 +1,177 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/typography";
+@import "base/base";
+
+body,
+html {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: OfficinaSansBlackC;
+  min-height: 100vh;
+
+  .footer {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 0;
+
+    @include response-to(small) {
+      flex-wrap: wrap;
+    }
+
+    .info-text {
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 120px;
+      margin-bottom: 25px;
+
+      @include response-to(small) {
+        margin-bottom: 22px;
+        margin-top: 30px;
+      }
+
+      & .br-pc {
+
+        @include response-to(small) {
+          display: none;
+        }
+      }
+    }
+
+    &__item {
+      width: 20%;
+
+      @include response-to(small) {
+        width: 100%;
+      }
+
+      &:first-of-type {
+
+        @include response-to(small) {
+          order: 3;
+        }
+      }
+
+      &:nth-of-type(2) {
+        width: 78%;
+
+        @include response-to(small) {
+          width: 100%;
+        }
+      }
+
+      &_phone {
+        display: block;
+        font-weight: 900;
+        font-size: 21px;
+        color: #fff;
+        margin-bottom: 5px;
+
+        @include on-event {
+          text-decoration: underline;
+        }
+
+        @include response-to(small) {
+          text-align: center;
+          margin-bottom: 0;
+        }
+      }
+
+      &_email {
+        font-weight: normal;
+        font-size: 16px;
+        text-decoration: underline;
+        color: #fff;
+        display: block;
+
+        @include on-event {
+          text-decoration: none;
+        }
+
+        @include response-to(small) {
+          margin-bottom: 24px;
+          text-align: center;
+        }
+      }
+
+      &_logo {
+        width: 132px;
+        margin: 0 auto 20px;
+
+        @include response-to(small) {
+          margin-bottom: 36px;
+        }
+
+        & img {
+          max-width: 100%;
+          display: block;
+        }
+      }
+
+      &_text {
+        color: #fff;
+        text-align: center;
+        font-weight: normal;
+        font-size: 12px;
+
+        @include response-to(small) {
+          margin-bottom: 36px;
+        }
+      }
+
+      &_links {
+        display: flex;
+        justify-content: flex-end;
+
+        @include response-to(small) {
+          justify-content: center;
+        }
+      }
+
+      &_link {
+        width: 29px;
+        height: 29px;
+        cursor: pointer;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include response-to(small) {
+          width: 47px;
+          height: 47px;
+          margin-bottom: 14px;
+        }
+        
+        &:not(:last-of-type) {
+          margin-right: 8px;
+
+          @include response-to(small) {
+            margin-right: 13px;
+          }
+        }
+        
+        &.vk {
+          background-image: url('../img/vk.svg');
+        }
+
+        &.yt {
+          background-image: url('../img/youtube.svg');
+        }
+
+        &.inst {
+          background-image: url('../img/inst.svg');
+        }
+      }
+    }
+  }
+}

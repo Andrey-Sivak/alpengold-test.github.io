@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
 
         setTimeout(() => {
             loader.parentElement.removeChild(loader);
-        }, 500);
+        }, 1500);
 
     })();
 

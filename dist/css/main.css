@@ -1014,7 +1014,22 @@ input[type="number"] {
 .home-page .first-section {
   padding-top: 94px;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  margin-bottom: -60px;
+  padding-bottom: 60px; }
+  @media (min-width: 767px) {
+    .home-page .first-section {
+      background-image: url("../img/first-sec-bg-pc.png");
+      background-size: cover; }
+      .home-page .first-section:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 30%;
+        background: -webkit-linear-gradient(right, rgba(255, 195, 39, 0.7) 2.05%, rgba(255, 195, 39, 0) 90.53%);
+        background: linear-gradient(270deg, rgba(255, 195, 39, 0.7) 2.05%, rgba(255, 195, 39, 0) 90.53%); } }
   @media (max-width: 767px) {
     .home-page .first-section {
       padding-bottom: 105px; }

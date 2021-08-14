@@ -150,25 +150,27 @@
 
   &.scroll {
 
-    .header__logo_img {
-      opacity: 0;
-      z-index: -1000;
-    }
+    @include response-to(medium) {
+      .header__logo_img {
+        opacity: 0;
+        z-index: -1000;
+      }
 
-    .header__logo_mob-scroll {
-      width: 60px;
-      height: 52px;
-      top: -2px;
-    }
+      .header__logo_mob-scroll {
+        width: 60px;
+        height: 52px;
+        top: -2px;
+      }
 
-    .header__magnit {
-      top: -2px;
-      right: -2px;
-    }
+      .header__magnit {
+        top: -2px;
+        right: -2px;
+      }
 
-    .header__magnit img.mob {
-      height: 63px;
-      width: 77px;
+      .header__magnit img.mob {
+        height: 63px;
+        width: 77px;
+      }
     }
   }
 }

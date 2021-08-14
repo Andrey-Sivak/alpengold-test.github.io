@@ -3,6 +3,8 @@
   padding-bottom: 20px;
   background-color: #fff;
   color: #46248A;
+  position: relative;
+  z-index: 20;
 
   &__wrap {
     display: flex;

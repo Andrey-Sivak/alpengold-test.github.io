@@ -1,7 +1,9 @@
 'use strict';
 import * as $ from 'jquery';
 import './jquery.validate.min.js';
+import './jquery.inputmask.min';
 import './slick.min';
+import './select2.min';
 
 const mobileWidth = 767;
 let isMobile = checkWidth();
@@ -196,6 +198,120 @@ window.addEventListener('load', function () {
         }
     })();
 
+    (function select() {
+        if($('.select').length > 1) {
+            $('select').each(function() {
+                let $this = $(this).not('.select-search');
+                let parent = $(this).not('.select-search').parents('.select');
+                $this.select2({
+                    minimumResultsForSearch: Infinity,
+                    dropdownParent: parent
+                });
+            });
+            $('.select-search').each(function() {
+                let $this = $(this);
+                let parent = $(this).parents('.select');
+                $this.select2({
+                    dropdownParent: parent
+                });
+            });
+        } else {
+            $('select').select2({
+                minimumResultsForSearch: Infinity,
+                dropdownParent: $('.select')
+            });
+        }
+    })();
+
+    (function mask() {
+        function maskInit() {
+            $(".phone-mask").inputmask({
+                mask:"+7(999)999-99-99",
+                "clearIncomplete": true
+            });
+
+            /*$(".card-mask").inputmask({
+                mask:"9999-9999-9999-9999",
+                "clearIncomplete": true
+            });*/
+        }
+        maskInit();
+    })();
+
+    (function validate() {
+        var form = $('form');
+
+        $.each(form, function () {
+            $(this).validate({
+                ignore: [],
+                errorClass: 'error',
+                validClass: 'success',
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: {
+                        required: true,
+                        phone: true
+                    },
+                    message: {
+                        required: true
+                    },
+                    password: {
+                        required: true,
+                        normalizer: function normalizer(value) {
+                            return $.trim(value);
+                        }
+                    }
+                },
+                errorElement : 'span',
+                errorPlacement: function(error, element) {
+                    var placement = $(element).data('error');
+                    if (placement) {
+                        $(placement).append(error);
+                    } else {
+                        error.insertBefore(element);
+                    }
+                },
+                messages: {
+                    phone: 'Некорректный номер',
+                    email: 'Некорректный e-mail'
+                }
+            });
+        });
+        $.validator.addMethod('email', function (value, element) {
+            return this.optional(element) || /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}/.test(value);
+        });
+        $.validator.addMethod('phone', function (value, element) {
+            return this.optional(element) || /\+7\(\d+\)\d{3}-\d{2}-\d{2}/.test(value);
+        });
+    })();
+
+    (function accordion() {
+        const wrap = $('.accordion-wrap');
+        const accordion = wrap.find('.accordion-title');
+
+        accordion.on('click', function () {
+            const $this = $(this);
+            const $parent = $(this).parent();
+            const content = $this.next();
+
+            if (content.is(':visible')) {
+                $this.removeClass('active');
+                $parent.removeClass('active');
+                content.slideUp('fast');
+            } else {
+                $this.addClass('active');
+                $parent.addClass('active');
+                content.slideDown('fast');
+            }
+
+        });
+    })();
 });
 
 function checkWidth() {

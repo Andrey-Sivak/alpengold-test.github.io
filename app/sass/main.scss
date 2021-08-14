@@ -1,4 +1,5 @@
 @import "libs/slick";
+@import "libs/select2";
 
 @import "abstracts/functions";
 @import "abstracts/mixins";
@@ -16,6 +17,10 @@
 @import "components/loader";
 
 @import "pages/home-page";
+@import "pages/cookise";
+@import "pages/faq";
+@import "pages/winners";
+@import "pages/error";
 
 body,
 html {

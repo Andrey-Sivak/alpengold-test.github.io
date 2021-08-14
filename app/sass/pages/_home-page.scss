@@ -37,6 +37,10 @@
       }
     }
 
+    & > .container {
+      position: relative;
+    }
+
     &__dates {
       font-weight: 800;
       font-size: 16px;

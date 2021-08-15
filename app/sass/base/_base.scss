@@ -13,6 +13,15 @@
   overflow: hidden;
 }
 
+.parallax-mirror {
+  overflow: visible !important;
+}
+
+.parallax-mirror img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .page-caption {
   position: relative;
   z-index: 1;

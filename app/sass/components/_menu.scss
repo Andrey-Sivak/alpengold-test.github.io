@@ -11,7 +11,7 @@
     background-color: #FFC500;
     max-width: unset;
     padding-top: 96px;
-    @include transition-ease;
+    //@include transition-ease;
 
     &.active {
       transform: translateY(0);
@@ -39,7 +39,7 @@
       width: 100%;
       text-align: center;
       transform: translateX(100vw);
-      @include transition-ease;
+      //@include transition-ease;
     }
 
     &.active {
@@ -68,11 +68,5 @@
         padding: 20px 0;
       }
     }
-  }
-}
-
-@for $i from 1 through 5 {
-  .menu__item:nth-child(#{$i}) {
-    transition-delay: ( $i * .1s ) + 0.15s;
   }
 }

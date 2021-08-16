@@ -206,6 +206,13 @@
            width="510"
            height="219">
 
+      <img src="./dist/img/sec-section-rt-top-choko.png"
+           alt="img"
+           class="second-section__rt-top-choko-mob"
+           loading="lazy"
+           width="115"
+           height="100">
+
       <div class="second-section__item">
         <div class="second-section__item_img">
           <img src="./dist/img/sec-section-1.png"
@@ -716,26 +723,58 @@
     </div>
   </div>
 </footer>
-<script src="./libs/TweenMax.min.js"></script>
 <script src="./libs/parallax.min.js"></script>
 <script>
-    if($(".home-page .second-section").length && window.innerWidth < 1000) {
-        $(".home-page .second-section").mousemove(function(e) {
-            let $this = $(this);
-            parallaxIt(e, ".home-page .second-section", -15, $this);
-        });
-    }
+    (function () {
+        const el = document.querySelector('.second-section__lt-bottom-choko-mob');
+        const elTop = el.getBoundingClientRect().top;
 
-    function parallaxIt(e, target, movement, container) {
-        let $this = container;
-        let relX = e.pageX - $this.offset().left;
-        let relY = e.pageY - $this.offset().top;
+        let i = 1;
+        let lastOffset = 0;
 
-        TweenMax.to(target, 1, {
-            x: (relX - $this.width() / 2) / $this.width() * movement,
-            y: (relY - $this.height() / 2) / $this.height() * movement
-        });
-    }
+        window.addEventListener('scroll', function (e) {
+            const offset = window.pageYOffset;
+
+            if (offset >= elTop) {
+                if (offset - lastOffset > 0) {
+                    i += 1.5;
+                } else {
+                    i -= 1.5;
+                }
+                el.style.transform = `translateX(-55%) translateY(${i}px)`;
+            } else {
+                el.style.transform = `translateX(-55%) translateY(0)`;
+            }
+
+            lastOffset = offset;
+        })
+    })();
+
+    (function () {
+        const el = document.querySelector('.second-section__rt-top-choko-mob');
+        const elTop = el.getBoundingClientRect().top;
+
+        let i = 1;
+        let lastOffset = 0;
+
+        window.addEventListener('scroll', function (e) {
+            const offset = window.pageYOffset;
+
+            if (offset - lastOffset > 0) {
+                i += 1;
+            } else {
+                i -= 1;
+            }
+
+            if (offset === 0) {
+                i = 1;
+            }
+
+            el.style.transform = `translateY(${i}px)`;
+
+            lastOffset = offset;
+        })
+    })();
 </script>
 </body>
 </html>

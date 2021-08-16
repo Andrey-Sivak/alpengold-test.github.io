@@ -1651,7 +1651,7 @@ input[type="number"] {
     z-index: 1; }
     @media (max-width: 767px) {
       .home-page .first-section .azamat-img {
-        width: 215px;
+        width: 225px;
         height: 354px;
         right: -15px; } }
   .home-page .first-section .text-img {
@@ -1739,11 +1739,19 @@ input[type="number"] {
     top: 0;
     width: 115px;
     height: 100px; }
+    .home-page .second-section__rt-top-choko-mob {
+      position: absolute;
+      z-index: 2;
+      width: 115px;
+      height: 100px;
+      display: none;
+      left: 30px;
+      top: -120px; }
     @media (max-width: 767px) {
       .home-page .second-section__rt-top-choko {
-        right: unset;
-        left: 30px;
-        top: -120px; } }
+        display: none; }
+        .home-page .second-section__rt-top-choko-mob {
+          display: block; } }
   @media (max-width: 767px) {
     .home-page .second-section img[src="./dist/img/sec-section-lt-bottom-choko.png"] {
       display: none; } }
@@ -1751,7 +1759,7 @@ input[type="number"] {
     position: absolute;
     z-index: 2;
     left: -245px;
-    bottom: -250px;
+    bottom: -200px;
     width: 464px;
     height: 358px; }
     @media (max-width: 767px) {
@@ -1761,7 +1769,7 @@ input[type="number"] {
       display: none;
       position: absolute;
       z-index: 2;
-      top: 93.5%;
+      top: 89.5%;
       left: 50%;
       -webkit-transform: translateX(-55%);
           -ms-transform: translateX(-55%);

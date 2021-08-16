@@ -4,8 +4,6 @@ import './jquery.validate.min.js';
 import './jquery.inputmask.min';
 import './slick.min';
 import './select2.min';
-// import './TweenMax.min';
-// import './parallax.min';
 
 const mobileWidth = 767;
 let isMobile = checkWidth();

@@ -106,7 +106,7 @@
       z-index: 1;
 
       @include response-to(small) {
-        width: 215px;
+        width: 225px;
         height: 354px;
         right: -15px;
       }
@@ -210,10 +210,22 @@
       width: 115px;
       height: 100px;
 
-      @include response-to(small) {
-        right: unset;
+      &-mob {
+        position: absolute;
+        z-index: 2;
+        width: 115px;
+        height: 100px;
+        display: none;
         left: 30px;
         top: -120px;
+      }
+
+      @include response-to(small) {
+        display: none;
+
+        &-mob {
+          display: block;
+        }
       }
     }
 
@@ -228,7 +240,7 @@
       position: absolute;
       z-index: 2;
       left: -245px;
-      bottom: -250px;
+      bottom: -200px;
       width: 464px;
       height: 358px;
 
@@ -240,7 +252,7 @@
         display: none;
         position: absolute;
         z-index: 2;
-        top: 93.5%;
+        top: 89.5%;
         left: 50%;
         transform: translateX(-55%);
         width: 510px;

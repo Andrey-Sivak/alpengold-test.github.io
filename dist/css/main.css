@@ -1443,6 +1443,7 @@ input[type="number"] {
             justify-content: space-between;
     width: 100%; }
     .product__body .slick-arrow {
+      z-index: 10000;
       top: 89px;
       width: 23px;
       height: 36px; }
@@ -1452,6 +1453,10 @@ input[type="number"] {
         left: 5px; }
       .product__body .slick-arrow:before {
         content: none; }
+  .product.dark .product__item_img {
+    margin-bottom: -10px;
+    margin-top: -15px;
+    position: relative; }
   .product__item {
     width: 244px;
     text-align: center;
@@ -1485,18 +1490,32 @@ input[type="number"] {
           -ms-flex-wrap: wrap;
               flex-wrap: wrap;
       margin-bottom: 18px;
-      width: 100%; }
+      width: 100%;
+      position: relative; }
     .product__item_weight {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-              transform: translateX(-50%);
+      text-align: center;
       font-style: italic; }
     .product__item_text {
       font-family: 'OfficinaSans SCC', sans-serif;
       font-weight: 500; }
+    @media (max-width: 992px) {
+      .product__item.empty {
+        display: none; } }
+    .product__item.new .product__item_img:before {
+      box-sizing: border-box;
+      content: '';
+      z-index: 1;
+      position: absolute;
+      background-color: transparent;
+      width: 100px;
+      height: 48px;
+      border-radius: 12px;
+      background-image: url("../img/new.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      left: 45%;
+      top: 48%; }
   .product.active .product__header {
     margin-bottom: 20px; }
     @media (max-width: 767px) {
@@ -1864,7 +1883,8 @@ input[type="number"] {
       background-color: #E30613;
       color: #fff;
       padding: 8px 0;
-      border-radius: 16px; }
+      border-radius: 16px;
+      margin-top: 12px; }
 
 .home-page .third-section {
   background-image: url("../img/choko-bg.png");

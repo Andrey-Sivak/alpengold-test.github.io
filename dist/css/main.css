@@ -1898,7 +1898,8 @@ input[type="number"] {
   margin-top: -100px;
   padding-top: 160px;
   position: relative;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  overflow: hidden; }
   .home-page .third-section:before {
     position: absolute;
     z-index: 0;
